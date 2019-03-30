@@ -1,0 +1,31 @@
+.page-wrapper {
+	height: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 20px;
+}
+
+.page, .page__content {
+	width: 100%;
+}
+
+.page {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.page__content {
+	max-width: 740px;
+	padding: 20px;
+	margin: 0 auto;
+}
+
+p {
+	font-size: 21px;
+	line-height: 1.58;
+	letter-spacing: -.003em;
+	word-break: break-word;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+}
