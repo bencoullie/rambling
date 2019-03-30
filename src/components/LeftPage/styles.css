@@ -1,0 +1,7 @@
+.page--left-side {
+	/* font-family: 'Source Serif Pro', serif; */
+	font-family: 'Inconsolata', sans-serif;
+	text-align: center;
+	background: rgba(0,0,0,0.84);
+	color: #f1e7fe;
+}
