@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { baseState } from '../../App'
+import state from '../../state/types/state'
 import './styles.css'
 
 interface letterPageProps {
@@ -17,7 +17,7 @@ const RightPage = ({ letter }: letterPageProps) => {
 	)
 }
 
-function mapStateToProps (state: baseState) {
+function mapStateToProps (state: state) {
 	return {
 		letter: state.stories[0].letter
 	};

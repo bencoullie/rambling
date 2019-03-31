@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { baseState } from '../../App'
+import state from '../../state/types/state'
 import './styles.css'
 
 interface experiencePageProps {
@@ -17,7 +17,7 @@ const LeftPage = ({ experience }: experiencePageProps) => {
 	)
 }
 
-function mapStateToProps (state: baseState) {
+function mapStateToProps (state: state) {
 	return {
 		experience: state.stories[0].experience
 	};
