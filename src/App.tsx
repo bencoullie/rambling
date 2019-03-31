@@ -1,10 +1,10 @@
 import React from 'react'
-import GameLayout from './components/GameLayout'
+import GameContainer from './components/GameContainer'
 import './App.css'
 
 const App = () => {
   return (
-    <GameLayout />
+    <GameContainer />
   )
 }
 

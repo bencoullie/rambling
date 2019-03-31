@@ -3,7 +3,7 @@ import LeftPage from '../LeftPage'
 import RightPage from '../RightPage'
 import './styles.css'
 
-const GameLayout = () => {
+const GameContainer = () => {
 	return (
 		<>
 			<main className="page-wrapper">
@@ -14,4 +14,4 @@ const GameLayout = () => {
 	)
 }
 
-export default GameLayout
+export default GameContainer
