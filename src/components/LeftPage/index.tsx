@@ -20,7 +20,7 @@ const LeftPage = ({ experience }: experiencePageProps) => {
 function mapStateToProps (state: state) {
 	return {
 		experience: state.stories[0].experience
-	};
+	}
 }
 
 export default connect(mapStateToProps)(LeftPage);
