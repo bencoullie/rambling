@@ -1,3 +1,4 @@
 export default interface basicAction {
-	type: string
+	type: string,
+	[key: string]: any
 }
