@@ -1,17 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import state from '../../state/types/state'
+import state from '../../types/state'
 import './styles.css'
 
-interface letterPageProps {
-	letter: string
+interface postcardPageProps {
+	postcard: string
 }
 
-const RightPage = ({ letter }: letterPageProps) => {
+const RightPage = ({ postcard }: postcardPageProps) => {
 	return (
 		<section className="page page--right-side">
 			<div className="page__content">
-				<p>{letter}</p>
+				<p>{postcard}</p>
+				{postcard && <p>No need to reply.</p>}
 			</div>
 		</section>
 	)
@@ -19,7 +20,7 @@ const RightPage = ({ letter }: letterPageProps) => {
 
 function mapStateToProps (state: state) {
 	return {
-		letter: state.stories[0].letter
+		postcard: state.stories[0] ? state.stories[0].postcard : ''
 	};
 }
 
