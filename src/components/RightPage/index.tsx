@@ -18,10 +18,8 @@ const RightPage = ({ postcard }: postcardPageProps) => {
 	)
 }
 
-function mapStateToProps (state: state) {
-	return {
-		postcard: state.stories[0] ? state.stories[0].postcard : ''
-	};
-}
+const mapStateToProps = (state: state) => ({
+	postcard: state.stories[state.postcardIndex] ? state.stories[state.postcardIndex].postcard : ''
+})
 
 export default connect(mapStateToProps)(RightPage);

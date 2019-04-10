@@ -1,8 +1,6 @@
 import React from 'react'
 import GameContainer from './components/GameContainer'
 import './App.css'
-
-// Redux
 import store from './state/store'
 import { Provider } from 'react-redux'
 

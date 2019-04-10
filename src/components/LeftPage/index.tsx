@@ -19,10 +19,8 @@ const LeftPage = ({ experience }: experiencePageProps) => {
 	)
 }
 
-function mapStateToProps (state: state) {
-	return {
-		experience: state.stories[0] ? state.stories[0].experience : ''
-	}
-}
+const mapStateToProps = (state: state) => ({
+	experience: state.stories[state.postcardIndex] ? state.stories[state.postcardIndex].experience : ''
+})
 
 export default connect(mapStateToProps)(LeftPage);
