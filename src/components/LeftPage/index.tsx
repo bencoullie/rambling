@@ -1,26 +1,27 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import state from '../../types/state'
+import applicationState from '../../types/applicationState'
 import './styles.css'
 
 interface experiencePageProps {
-	experience: string,
+	experience: string
+	loading: boolean
 	dispatch: Dispatch
 }
 
-const LeftPage = ({ experience }: experiencePageProps) => {
+const LeftPage = ({ experience, loading }: experiencePageProps) => {
 	return (
 		<section className="page page--left-side">
 			<div className="page__content">
-				<p>{experience}</p>
+				<p>{loading ? '...' : experience}</p>
 			</div>
 		</section>
 	)
 }
 
-const mapStateToProps = (state: state) => ({
-	experience: state.stories[state.postcardIndex] ? state.stories[state.postcardIndex].experience : ''
-})
+const mapStateToProps = ({ stories, page, loading }: applicationState) => {
+	return { experience: stories[page] ? stories[page].experience : '', loading }
+}
 
 export default connect(mapStateToProps)(LeftPage);

@@ -1,23 +1,20 @@
-import { call, put, fork } from 'redux-saga/effects'
+import { call, put } from 'redux-saga/effects'
 import fetchStories from '../../utilities/fetchStories'
-import story from '../../types/story'
+import Story from '../../types/story'
+import { STORIES_FETCH_SUCCEEDED_ACTION_TYPE } from '../actions/storyAction'
 
 function* fetchStoriesSaga () {
 	try {
-		const stories: [story[] | []] = yield call(fetchStories)
+		const stories: [Story[] | []] = yield call(fetchStories)
 
 		if (!stories.length) {
 			throw new Error('No stories found.')
 		}
 
-		yield put({ type: 'STORIES_FETCH_SUCCEEDED', stories })
+		yield put({ type: STORIES_FETCH_SUCCEEDED_ACTION_TYPE, stories })
 	} catch (error) {
-		console.log('Fetch user saga error: ', error)
+		throw new Error(`Fetch user saga error: ${error}`)
 	}
 }
 
-function* watchStoriesSaga () {
-	yield fork(fetchStoriesSaga)
-}
-
-export default watchStoriesSaga
+export default fetchStoriesSaga

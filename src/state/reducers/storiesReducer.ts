@@ -1,17 +1,6 @@
-import storyAction from '../actions/storyAction'
-import state from '../../types/state'
-import { initialState } from '../store'
+import storyAction, { STORIES_FETCH_SUCCEEDED_ACTION_TYPE } from '../actions/storyAction'
+import Story from '../../types/story'
 
-const storiesReducer = (state: state = initialState, action: storyAction) => {
-	if (action.type === 'STORIES_FETCH_SUCCEEDED') {
-		const clonedState = { ...state }
-
-		clonedState.stories = action.stories
-
-		return clonedState
-	}
-
-	return state
-}
+const storiesReducer = (stories: Story[] = [], action: storyAction) => action.type === STORIES_FETCH_SUCCEEDED_ACTION_TYPE ? action.stories : stories
 
 export default storiesReducer

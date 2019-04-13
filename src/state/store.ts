@@ -1,24 +1,19 @@
-import { createStore, applyMiddleware } from 'redux'
+import { Store, createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import storiesReducer from './reducers/storiesReducer'
+import reducers from './reducers'
 import createSagaMiddleware from 'redux-saga'
-import fetchStoriesSaga from './sagas/fetchStoriesSaga'
-import state from '../types/state'
+import rootSaga from './sagas/rootSaga'
+import { initialState } from './reducers'
 
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware()
 
-const initialState: state = {
-	stories: [],
-	postcardIndex: 0
-}
-
-const store = createStore(storiesReducer, initialState, composeWithDevTools(
+const store: Store = createStore(reducers, initialState, composeWithDevTools(
 	applyMiddleware(sagaMiddleware)
 ))
 
 // then run the saga
-sagaMiddleware.run(fetchStoriesSaga)
+sagaMiddleware.run(rootSaga)
 
 export { initialState }
 export default store
