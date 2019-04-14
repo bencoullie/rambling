@@ -1,4 +1,4 @@
-import {Story} from '../../types/story'
+import { Story } from '../../types/story'
 
 const STORIES_FETCH_SUCCEEDED_ACTION_TYPE = 'STORIES_FETCH_SUCCEEDED'
 

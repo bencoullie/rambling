@@ -6,7 +6,9 @@ const parseApiStories = (stories: Item[]): Story[] => {
 		const rawStory = story['content:encoded']
 		const strippedStory = rawStory.replace(/(<([^>]+)>)/ig, "")
 		const [experience, rawPostcard] = strippedStory.split('Postcard:')
-		const postcard = rawPostcard.replace('No need to reply.Next.', '')
+		const postcardWithoutReply = rawPostcard.replace('No need to reply', '')
+		const postcardFullStop = postcardWithoutReply.replace('..', '.')
+		const postcard = postcardFullStop.replace('Next.', '')
 
 		return { experience, postcard }
 	})
