@@ -1,7 +1,7 @@
-import story from './story'
+import { Story } from './story'
 
-export default interface applicationState {
-	stories: story[] | []
+export default interface ApplicationState {
+	stories: Story[] | []
 	page: number,
 	loading: boolean
 }

@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects'
 import fetchStories from '../../utilities/fetchStories'
-import Story from '../../types/story'
+import { Story } from '../../types/story'
 import { STORIES_FETCH_SUCCEEDED_ACTION_TYPE } from '../actions/storyAction'
 
 function* fetchStoriesSaga () {

@@ -1,4 +1,4 @@
-export default interface story {
+export interface Story {
 	experience: string
 	postcard: string
 }

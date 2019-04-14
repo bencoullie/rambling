@@ -1,14 +1,14 @@
 import React from 'react'
-import { connect } from 'react-redux';
-import applicationState from '../../types/applicationState'
+import { connect } from 'react-redux'
+import ApplicationState from '../../types/applicationState'
 import './styles.css'
 
-interface postcardPageProps {
+interface PostcardPageProps {
 	postcard: string
 	loading: boolean
 }
 
-const RightPage = ({ postcard, loading }: postcardPageProps) => {
+const RightPage = ({ postcard, loading }: PostcardPageProps) => {
 	const content = (
 		<>
 			<p>{postcard}</p>
@@ -25,8 +25,8 @@ const RightPage = ({ postcard, loading }: postcardPageProps) => {
 	)
 }
 
-const mapStateToProps = ({ stories, page, loading }: applicationState) => {
+const mapStateToProps = ({ stories, page, loading }: ApplicationState) => {
 	return { postcard: stories[page] ? stories[page].postcard : '', loading }
 }
 
-export default connect(mapStateToProps)(RightPage);
+export default connect(mapStateToProps)(RightPage)
