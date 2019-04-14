@@ -5,12 +5,14 @@ import './styles.css'
 import { connect } from 'react-redux'
 import pageActionCreator from '../../state/actions/pageAction'
 import { PageAction } from '../../types/pageAction'
+import { Story } from '../../types/story'
 
 interface GameContainerProps {
 	dispatch: Dispatch<PageAction>
+	numberOfStories: number
 }
 
-const GameContainer = ({ dispatch }: GameContainerProps) => {
+const GameContainer = ({ dispatch, numberOfStories }: GameContainerProps) => {
 	useEffect(() => {
 		document.addEventListener('keyup', handleKeyPress)
 		return () => { document.removeEventListener('keyup', handleKeyPress) }
@@ -19,12 +21,10 @@ const GameContainer = ({ dispatch }: GameContainerProps) => {
 	const handleKeyPress = ({ key }: KeyboardEvent) => {
 		switch (key) {
 			case 'ArrowLeft':
-				console.log('Left pressed!')
-				dispatch(pageActionCreator('TURN_PAGE_LEFT'))
+				dispatch(pageActionCreator('TURN_PAGE_LEFT', numberOfStories))
 				break
 			case 'ArrowRight':
-				console.log('Right pressed!')
-				dispatch(pageActionCreator('TURN_PAGE_RIGHT'))
+				dispatch(pageActionCreator('TURN_PAGE_RIGHT', numberOfStories))
 				break
 		}
 	}
@@ -39,6 +39,6 @@ const GameContainer = ({ dispatch }: GameContainerProps) => {
 	)
 }
 
-const mapStateToProps = () => ({})
+const mapStateToProps = ({ stories }: { stories: Story[] }) => ({ numberOfStories: stories.length })
 
 export default connect(mapStateToProps)(GameContainer)
