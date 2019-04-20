@@ -30,12 +30,10 @@ const GameContainer = ({ dispatch, numberOfStories }: GameContainerProps) => {
 	}
 
 	return (
-		<>
-			<main className="page-wrapper">
-				<LeftPage />
-				<RightPage />
-			</main>
-		</>
+		<main className="page-wrapper">
+			<LeftPage />
+			<RightPage />
+		</main>
 	)
 }
 

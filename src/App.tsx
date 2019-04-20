@@ -4,12 +4,10 @@ import './App.css'
 import store from './state/store'
 import { Provider } from 'react-redux'
 
-const App = () => {
-  return (
-    <Provider store={store}>
-      <GameContainer />
-    </Provider>
-  )
-}
+const App = () => (
+  <Provider store={store}>
+    <GameContainer />
+  </Provider>
+)
 
 export default App
