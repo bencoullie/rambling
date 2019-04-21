@@ -1,18 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ApplicationState from '../../types/applicationState'
+import { PageContent } from '../../types/story'
 import './styles.css'
 
 interface PostcardPageProps {
-	postcard: string
+	postcard: PageContent
 	loading: boolean
 }
 
 const RightPage = ({ postcard, loading }: PostcardPageProps) => {
 	const content = (
 		<>
-			<p>{postcard}</p>
-			{postcard && <p>No need to reply.</p>}
+			<p>{postcard.text}</p>
+			<p>No need to reply.</p>
 		</>
 	)
 
@@ -26,7 +27,12 @@ const RightPage = ({ postcard, loading }: PostcardPageProps) => {
 }
 
 const mapStateToProps = ({ stories, page, loading }: ApplicationState) => {
-	return { postcard: stories[page] ? stories[page].postcard : '', loading }
+	return {
+		postcard: {
+			text: stories[page] ? stories[page].postcard.text : '',
+			visible: stories[page] ? stories[page].postcard.visible : false
+		}, loading
+	}
 }
 
 export default connect(mapStateToProps)(RightPage)
