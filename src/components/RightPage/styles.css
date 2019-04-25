@@ -2,3 +2,13 @@
 	font-family: 'Inconsolata', sans-serif;
 	color: rgba(0,0,0,.84);
 }
+
+.postcard-icon {
+	width: 300px;
+	display: block;
+	margin: 0 auto;
+}
+
+.postcard-icon:hover {
+	cursor: pointer;
+}

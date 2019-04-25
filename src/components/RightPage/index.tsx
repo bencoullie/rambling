@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import ApplicationState from '../../types/applicationState'
 import { PageContent } from '../../types/story'
 import './styles.css'
+import postcardIcon from '../../assets/postcard.jpg'
 
 interface PostcardPageProps {
 	postcard: PageContent
@@ -20,7 +21,7 @@ const RightPage = ({ postcard, loading }: PostcardPageProps) => {
 	return (
 		<section className="page page--right-side">
 			<div className="page__content">
-				{!loading && content}
+				{loading || !postcard.visible ? <img src={postcardIcon} className="postcard-icon" /> : content}
 			</div>
 		</section>
 	)

@@ -4,6 +4,7 @@ import { Dispatch } from 'redux'
 import ApplicationState from '../../types/applicationState'
 import { PageContent } from '../../types/story'
 import './styles.css'
+import experienceIcon from '../../assets/experience.png'
 
 interface ExperiencePageProps {
 	experience: PageContent
@@ -15,7 +16,7 @@ const LeftPage = ({ experience, loading }: ExperiencePageProps) => {
 	return (
 		<section className="page page--left-side">
 			<div className="page__content">
-				<p>{loading ? '...' : experience.text}</p>
+				<p>{loading || !experience.visible ? <img src={experienceIcon} className="inverted-colors" /> : experience.text}</p>
 			</div>
 		</section>
 	)
