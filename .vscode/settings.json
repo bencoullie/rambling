@@ -1,0 +1,8 @@
+{
+  // Format
+  "eslint.autoFixOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.tslint": true
+  },
+  "eslint.enable": false
+}
