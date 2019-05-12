@@ -4,15 +4,15 @@ import page from './pageReducer'
 import loading from './loadingReducer'
 
 const initialState: any = {
-	stories: [],
-	page: 0,
-	loading: true
+  stories: [],
+  page: 0,
+  loading: true,
 }
 
 const combinedReducers = combineReducers({
-	stories,
-	page,
-	loading
+  stories,
+  page,
+  loading,
 })
 
 export { initialState }
