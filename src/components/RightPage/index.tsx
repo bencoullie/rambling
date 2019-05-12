@@ -6,13 +6,14 @@ import './styles.css'
 import postcardIcon from '../../assets/postcard.jpg'
 import StoryAction, {
   UPDATE_STORY_VISIBILITY_ACTION_TYPE,
+  UpdateStoryType,
 } from '../../state/actions/storyAction'
 
 interface PostcardPageProps {
   postcard: PageContent
   loading: boolean
   page: number
-  dispatch: Dispatch<StoryAction>
+  dispatch: Dispatch<StoryAction<UpdateStoryType>>
 }
 
 const RightPage = ({

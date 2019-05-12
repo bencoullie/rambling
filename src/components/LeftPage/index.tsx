@@ -7,13 +7,14 @@ import './styles.css'
 import experienceIcon from '../../assets/experience.png'
 import StoryAction, {
   UPDATE_STORY_VISIBILITY_ACTION_TYPE,
+  UpdateStoryType,
 } from '../../state/actions/storyAction'
 
 interface ExperiencePageProps {
   experience: PageContent
   loading: boolean
   page: number
-  dispatch: Dispatch<StoryAction>
+  dispatch: Dispatch<StoryAction<UpdateStoryType>>
 }
 
 const LeftPage = ({
