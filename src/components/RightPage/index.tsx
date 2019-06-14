@@ -1,9 +1,10 @@
-import React, { Dispatch } from 'react'
+import React, { Dispatch, useState } from 'react'
 import { connect } from 'react-redux'
 import ApplicationState from '../../types/applicationState'
 import { PageContent } from '../../types/story'
 import './styles.css'
 import postcardIcon from '../../assets/postcard.jpg'
+import coffeeStain from '../../assets/cup-coffee-stain.png'
 import StoryAction, {
   UPDATE_STORY_VISIBILITY_ACTION_TYPE,
   UpdateStoryType,
@@ -22,6 +23,9 @@ const RightPage = ({
   page,
   dispatch,
 }: PostcardPageProps) => {
+  const [imageIsLoaded, setImageIsLoaded] = useState(false)
+  const showClickableIcon = loading || !postcard.visible
+
   const dispatchVisibilityAction = () => {
     if (!postcard.visible) {
       dispatch({
@@ -35,15 +39,31 @@ const RightPage = ({
 
   const content = (
     <>
-      <p>{postcard.text}</p>
-      <p>No need to reply.</p>
+      <img
+        src={coffeeStain}
+        alt="Coffee Stain Background"
+        className="coffee-stain"
+        onLoad={() => {
+          setImageIsLoaded(true)
+        }}
+      />
+      {imageIsLoaded && (
+        <>
+          <p>{postcard.text}</p>
+          <p>No need to reply.</p>
+        </>
+      )}
     </>
   )
 
   return (
     <section className="page page--right-side">
       <div className="page__content">
-        {loading || !postcard.visible ? (
+        {// eslint-disable-next-line no-console
+        console.log(
+          "This apparently useless console log actually makes the animation smoother... what the actual fuck? I don't understand either"
+        )}
+        {showClickableIcon ? (
           <img
             src={postcardIcon}
             className="postcard-icon"
