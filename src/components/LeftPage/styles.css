@@ -1,19 +1,9 @@
 .page--left-side {
-	/* font-family: 'Source Serif Pro', serif; */
-	font-family: 'Inconsolata', sans-serif;
-	text-align: center;
-	background: rgba(0,0,0,0.84);
-	color: #f1e7fe;
-	border-radius: 6px;
+  /* font-family: 'Source Serif Pro', serif; */
+  font-family: 'Inconsolata', sans-serif;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.84);
+  color: #f1e7fe;
+  border-radius: 6px;
+  z-index: -2;
 }
-
-.page--left-side:hover {
-	background: rgba(0,0,0,0.82);
-	transition: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-	cursor: pointer;
-}
-
-.inverted-colors {
-	filter: invert(100%);
-}
-

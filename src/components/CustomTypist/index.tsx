@@ -5,19 +5,17 @@ import '../../../node_modules/react-typist/dist/Typist.css'
 
 interface Props {
   children: string
+  callbackFn: () => void
 }
 
-const CustomTypist = ({ children }: Props) => (
+const CustomTypist = ({ children, callbackFn }: Props) => (
   <Typist
     avgTypingDelay={67}
     stdTypingDelay={32}
     startDelay={2000}
     delayGenerator={typeistDelayGenerator}
     className="standard-text"
-    onTypingDone={() =>
-      // eslint-disable-next-line no-console
-      console.log('test')
-    }
+    onTypingDone={() => callbackFn()}
   >
     {children}
     <Typist.Delay ms={800} />

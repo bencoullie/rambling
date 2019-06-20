@@ -27,18 +27,14 @@ const RightPage = ({
 }: PostcardPageProps) => {
   const showClickableIcon = loading || !postcard.visible
 
-  const dispatchVisibilityAction = () => {
-    if (!postcard.visible) {
-      dispatch({
-        type: UPDATE_STORY_VISIBILITY_ACTION_TYPE,
-        storyIndex: page,
-        visibility: true,
-        storyType: 'postcard',
-      })
-    }
+  const dispatchVisibilityAction = (storyType: 'postcard' | 'experience') => {
+    dispatch({
+      type: UPDATE_STORY_VISIBILITY_ACTION_TYPE,
+      storyIndex: page,
+      visibility: true,
+      storyType,
+    })
   }
-
-  const content = <>{<CustomTypist>{postcard.text}</CustomTypist>}</>
 
   return (
     <section className="page page--right-side">
@@ -56,10 +52,20 @@ const RightPage = ({
           <img
             src={postcardIcon}
             className="postcard-icon"
-            onClick={dispatchVisibilityAction}
+            onClick={() => {
+              dispatchVisibilityAction('postcard')
+            }}
           />
         ) : (
-          content
+          <CustomTypist
+            callbackFn={() => {
+              // eslint-disable-next-line no-console
+              console.log('getting here')
+              dispatchVisibilityAction('experience')
+            }}
+          >
+            {postcard.text}
+          </CustomTypist>
         )}
       </div>
     </section>
