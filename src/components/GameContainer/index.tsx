@@ -8,35 +8,41 @@ import { PageAction } from '../../types/pageAction'
 import { Story } from '../../types/story'
 
 interface GameContainerProps {
-	dispatch: Dispatch<PageAction>
-	numberOfStories: number
+  dispatch: Dispatch<PageAction>
+  numberOfStories: number
 }
 
 const GameContainer = ({ dispatch, numberOfStories }: GameContainerProps) => {
-	useEffect(() => {
-		document.addEventListener('keyup', handleKeyPress)
-		return () => { document.removeEventListener('keyup', handleKeyPress) }
-	})
+  useEffect(() => {
+    document.addEventListener('keyup', handleKeyPress)
+    return () => {
+      document.removeEventListener('keyup', handleKeyPress)
+    }
+  })
 
-	const handleKeyPress = ({ key }: KeyboardEvent) => {
-		switch (key) {
-			case 'ArrowLeft':
-				dispatch(pageActionCreator('TURN_PAGE_LEFT', numberOfStories))
-				break
-			case 'ArrowRight':
-				dispatch(pageActionCreator('TURN_PAGE_RIGHT', numberOfStories))
-				break
-		}
-	}
+  const handleKeyPress = (event: KeyboardEvent) => {
+    switch (event.key) {
+      case 'ArrowLeft':
+        event.preventDefault()
+        dispatch(pageActionCreator('TURN_PAGE_LEFT', numberOfStories))
+        break
+      case 'ArrowRight':
+        event.preventDefault()
+        dispatch(pageActionCreator('TURN_PAGE_RIGHT', numberOfStories))
+        break
+    }
+  }
 
-	return (
-		<main className="page-wrapper">
-			<LeftPage />
-			<RightPage />
-		</main>
-	)
+  return (
+    <main className="page-wrapper">
+      <LeftPage />
+      <RightPage />
+    </main>
+  )
 }
 
-const mapStateToProps = ({ stories }: { stories: Story[] }) => ({ numberOfStories: stories.length })
+const mapStateToProps = ({ stories }: { stories: Story[] }) => ({
+  numberOfStories: stories.length,
+})
 
 export default connect(mapStateToProps)(GameContainer)
