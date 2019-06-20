@@ -31,3 +31,7 @@ p,
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
+
+.no-display {
+  display: none;
+}

@@ -10,6 +10,7 @@ import StoryAction, {
   UpdateStoryType,
 } from '../../state/actions/storyAction'
 import { CustomTypist } from '../CustomTypist'
+import classNames from 'classnames'
 
 interface PostcardPageProps {
   postcard: PageContent
@@ -24,7 +25,6 @@ const RightPage = ({
   page,
   dispatch,
 }: PostcardPageProps) => {
-  const [imageIsLoaded, setImageIsLoaded] = useState(false)
   const showClickableIcon = loading || !postcard.visible
 
   const dispatchVisibilityAction = () => {
@@ -38,25 +38,20 @@ const RightPage = ({
     }
   }
 
-  const content = (
-    <>
-      <img
-        src={coffeeStain}
-        alt="Coffee Stain Background"
-        className="coffee-stain"
-        onLoad={() => {
-          setImageIsLoaded(true)
-        }}
-      />
-      {imageIsLoaded && <CustomTypist>{postcard.text}</CustomTypist>}
-    </>
-  )
+  const content = <>{<CustomTypist>{postcard.text}</CustomTypist>}</>
 
   return (
     <section className="page page--right-side">
       <div className="page__content">
         {// eslint-disable-next-line no-console
         console.log('Animation going.')}
+        <img
+          src={coffeeStain}
+          alt="Coffee Stain Background"
+          className={classNames('coffee-stain', {
+            'no-display': showClickableIcon,
+          })}
+        />
         {showClickableIcon ? (
           <img
             src={postcardIcon}
