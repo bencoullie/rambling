@@ -9,6 +9,7 @@ import StoryAction, {
   UPDATE_STORY_VISIBILITY_ACTION_TYPE,
   UpdateStoryType,
 } from '../../state/actions/storyAction'
+import { CustomTypist } from '../CustomTypist'
 
 interface PostcardPageProps {
   postcard: PageContent
@@ -47,12 +48,7 @@ const RightPage = ({
           setImageIsLoaded(true)
         }}
       />
-      {imageIsLoaded && (
-        <>
-          <p>{postcard.text}</p>
-          <p>No need to reply.</p>
-        </>
-      )}
+      {imageIsLoaded && <CustomTypist>{postcard.text}</CustomTypist>}
     </>
   )
 
@@ -60,9 +56,7 @@ const RightPage = ({
     <section className="page page--right-side">
       <div className="page__content">
         {// eslint-disable-next-line no-console
-        console.log(
-          "This apparently useless console log actually makes the animation smoother... what the actual fuck? I don't understand either"
-        )}
+        console.log('Animation going.')}
         {showClickableIcon ? (
           <img
             src={postcardIcon}
