@@ -14,9 +14,9 @@ interface GameContainerProps {
 
 const GameContainer = ({ dispatch, numberOfStories }: GameContainerProps) => {
   useEffect(() => {
-    document.addEventListener('keyup', handleKeyPress)
+    document.addEventListener('keydown', handleKeyPress)
     return () => {
-      document.removeEventListener('keyup', handleKeyPress)
+      document.removeEventListener('keydown', handleKeyPress)
     }
   })
 
