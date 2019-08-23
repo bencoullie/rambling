@@ -4,5 +4,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.tslint": true
   },
-  "eslint.enable": false
+  "eslint.enable": false,
+  "editor.formatOnSave": true
 }

@@ -1,4 +1,4 @@
-import React, { Dispatch, useState } from 'react'
+import React, { Dispatch } from 'react'
 import { connect } from 'react-redux'
 import ApplicationState from '../../types/applicationState'
 import { PageContent } from '../../types/story'

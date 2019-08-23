@@ -1,0 +1,12 @@
+.loader {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.loader .standard-text {
+  font-weight: 300;
+}
