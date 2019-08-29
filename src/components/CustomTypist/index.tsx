@@ -30,12 +30,12 @@ const CustomTypist = ({
   >
     {children}
     {signature && (
-      <>
+      <span>
         <Typist.Delay ms={800} />
         <br />
         <br />
         No need to reply.
-      </>
+      </span>
     )}
   </Typist>
 )

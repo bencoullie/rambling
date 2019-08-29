@@ -39,8 +39,6 @@ const RightPage = ({
   return (
     <section className="page page--right-side">
       <div className="page__content">
-        {// eslint-disable-next-line no-console
-        console.log('Animation going.')}
         <img
           src={coffeeStain}
           alt="Coffee Stain Background"
@@ -59,8 +57,6 @@ const RightPage = ({
         ) : (
           <CustomTypist
             callbackFn={() => {
-              // eslint-disable-next-line no-console
-              console.log('getting here')
               dispatchVisibilityAction('experience')
             }}
           >
