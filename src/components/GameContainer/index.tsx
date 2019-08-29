@@ -8,12 +8,6 @@ import { PageAction } from '../../types/pageAction'
 import { Story } from '../../types/story'
 import loader from '../Loader'
 
-const preloadImages = (images: string[]) => {
-  images.forEach(imageFileName => {
-    new Image().src = imageFileName
-  })
-}
-
 interface GameContainerProps {
   dispatch: Dispatch<PageAction>
   numberOfStories: number

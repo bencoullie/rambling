@@ -4,7 +4,7 @@ import ApplicationState from '../../types/applicationState'
 import { PageContent } from '../../types/story'
 import './styles.css'
 import postcardIcon from '../../assets/postcard.jpg'
-import coffeeStain from '../../assets/cup-coffee-stain.png'
+import coffeeStain from '../../assets/cup-coffee-stain-compressed.png'
 import StoryAction, {
   UPDATE_STORY_VISIBILITY_ACTION_TYPE,
   UpdateStoryType,
