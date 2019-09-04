@@ -37,8 +37,8 @@ const GameContainer = ({ dispatch, numberOfStories, loading }: Props) => {
 
   const pages = (
     <main className="page-wrapper">
-      <ExperiencePage />
       <PostcardPage />
+      <ExperiencePage />
     </main>
   )
 
