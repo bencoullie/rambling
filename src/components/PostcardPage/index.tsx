@@ -12,19 +12,14 @@ import StoryAction, {
 import { CustomTypist } from '../CustomTypist'
 import classNames from 'classnames'
 
-interface PostcardPageProps {
+interface Props {
   postcard: PageContent
   loading: boolean
   page: number
   dispatch: Dispatch<StoryAction<UpdateStoryType>>
 }
 
-const RightPage = ({
-  postcard,
-  loading,
-  page,
-  dispatch,
-}: PostcardPageProps) => {
+const PostcardPage = ({ postcard, loading, page, dispatch }: Props) => {
   const showClickableIcon = loading || !postcard.visible
 
   const dispatchVisibilityAction = (storyType: 'postcard' | 'experience') => {
@@ -79,4 +74,4 @@ const mapStateToProps = ({ stories, page, loading }: ApplicationState) => {
   }
 }
 
-export default connect(mapStateToProps)(RightPage)
+export default connect(mapStateToProps)(PostcardPage)

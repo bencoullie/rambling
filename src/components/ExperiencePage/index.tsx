@@ -4,12 +4,12 @@ import ApplicationState from '../../types/applicationState'
 import { PageContent } from '../../types/story'
 import './styles.css'
 
-interface ExperiencePageProps {
+interface Props {
   experience: PageContent
   loading: boolean
 }
 
-const LeftPage = ({ experience, loading }: ExperiencePageProps) => (
+const ExperiencePage = ({ experience, loading }: Props) => (
   <section className="page page--left-side">
     <div className="page__content">
       <p className="standard-text--minor-shadow">
@@ -29,4 +29,4 @@ const mapStateToProps = ({ stories, page, loading }: ApplicationState) => {
   }
 }
 
-export default connect(mapStateToProps)(LeftPage)
+export default connect(mapStateToProps)(ExperiencePage)

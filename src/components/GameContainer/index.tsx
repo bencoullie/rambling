@@ -1,6 +1,6 @@
 import React, { useEffect, Dispatch } from 'react'
-import LeftPage from '../LeftPage'
-import RightPage from '../RightPage'
+import ExperiencePage from '../ExperiencePage'
+import PostcardPage from '../PostcardPage'
 import './styles.css'
 import { connect } from 'react-redux'
 import pageActionCreator from '../../state/actions/pageAction'
@@ -8,17 +8,13 @@ import { PageAction } from '../../types/pageAction'
 import { Story } from '../../types/story'
 import loader from '../Loader'
 
-interface GameContainerProps {
+interface Props {
   dispatch: Dispatch<PageAction>
   numberOfStories: number
   loading: boolean
 }
 
-const GameContainer = ({
-  dispatch,
-  numberOfStories,
-  loading,
-}: GameContainerProps) => {
+const GameContainer = ({ dispatch, numberOfStories, loading }: Props) => {
   useEffect(() => {
     document.addEventListener('keydown', handleKeyPress)
     return () => {
@@ -41,8 +37,8 @@ const GameContainer = ({
 
   const pages = (
     <main className="page-wrapper">
-      <LeftPage />
-      <RightPage />
+      <ExperiencePage />
+      <PostcardPage />
     </main>
   )
 
