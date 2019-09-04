@@ -25,7 +25,7 @@ const CustomTypist = ({
     stdTypingDelay={stdTypingDelay}
     startDelay={startDelay}
     delayGenerator={typeistDelayGenerator}
-    className="standard-text"
+    className="standard-text standard-text--major-shadow"
     onTypingDone={() => callbackFn()}
   >
     {children}

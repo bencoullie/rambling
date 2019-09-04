@@ -12,7 +12,9 @@ interface ExperiencePageProps {
 const LeftPage = ({ experience, loading }: ExperiencePageProps) => (
   <section className="page page--left-side">
     <div className="page__content">
-      <p>{!loading && experience.visible && experience.text}</p>
+      <p className="standard-text--minor-shadow">
+        {!loading && experience.visible && experience.text}
+      </p>
     </div>
   </section>
 )

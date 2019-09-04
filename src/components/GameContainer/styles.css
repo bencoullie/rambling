@@ -32,6 +32,14 @@ p,
   -webkit-font-smoothing: antialiased;
 }
 
+.standard-text--minor-shadow {
+  text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.3);
+}
+
+.standard-text--major-shadow {
+  text-shadow: 0px 0px 5px rgba(255, 255, 255, 1);
+}
+
 .no-display {
   display: none;
 }
