@@ -3,6 +3,7 @@ import { Story } from '../../types/story'
 
 const parseApiStories = (stories: Item[]): Story[] => {
   return stories.map(story => {
+    const title = story.title || ''
     const rawStory = story['content:encoded']
     const strippedStory = rawStory.replace(/(<([^>]+)>)/gi, '')
     const [experience, rawPostcard] = strippedStory.split('Postcard:')
@@ -10,7 +11,7 @@ const parseApiStories = (stories: Item[]): Story[] => {
     const postcardFullStop = postcardWithoutReply.replace('..', '.')
     const postcard = postcardFullStop.replace('Next.', '')
 
-    return { experience, postcard }
+    return { experience, postcard, title }
   })
 }
 

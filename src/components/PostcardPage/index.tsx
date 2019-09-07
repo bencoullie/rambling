@@ -13,14 +13,16 @@ import { CustomTypist } from '../CustomTypist'
 import classNames from 'classnames'
 
 interface Props {
+  title: string
   postcard: PageContent
   loading: boolean
   page: number
   dispatch: Dispatch<StoryAction<UpdateStoryType>>
 }
 
-const PostcardPage = ({ postcard, loading, page, dispatch }: Props) => {
-  const showClickableIcon = loading || !postcard.visible
+const PostcardPage = ({ postcard, loading, page, title, dispatch }: Props) => {
+  const { text, visible } = postcard
+  const showClickableIcon = loading || !visible
 
   const dispatchVisibilityAction = (storyType: 'postcard' | 'experience') => {
     dispatch({
@@ -42,20 +44,23 @@ const PostcardPage = ({ postcard, loading, page, dispatch }: Props) => {
           })}
         />
         {showClickableIcon ? (
-          <img
-            src={postcardIcon}
-            className="postcard-icon"
-            onClick={() => {
-              dispatchVisibilityAction('postcard')
-            }}
-          />
+          <>
+            <img
+              src={postcardIcon}
+              className="postcard-icon"
+              onClick={() => {
+                dispatchVisibilityAction('postcard')
+              }}
+            />
+            {title}
+          </>
         ) : (
           <CustomTypist
             callbackFn={() => {
               dispatchVisibilityAction('experience')
             }}
           >
-            {postcard.text}
+            {text}
           </CustomTypist>
         )}
       </div>
@@ -65,6 +70,7 @@ const PostcardPage = ({ postcard, loading, page, dispatch }: Props) => {
 
 const mapStateToProps = ({ stories, page, loading }: ApplicationState) => {
   return {
+    title: stories[page] ? stories[page].title : '',
     postcard: {
       text: stories[page] ? stories[page].postcard.text : '',
       visible: stories[page] ? stories[page].postcard.visible : false,

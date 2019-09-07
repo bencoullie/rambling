@@ -1,14 +1,16 @@
 export interface PageContent {
-	text: string
-	visible: boolean
+  text: string
+  visible: boolean
 }
 
 export interface Story {
-	experience: PageContent
-	postcard: PageContent
+  experience: PageContent
+  postcard: PageContent
+  title: string
 }
 
 export interface ApiStory {
-	experience: string
-	postcard: string
+  experience: string
+  postcard: string
+  title: string
 }
