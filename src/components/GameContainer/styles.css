@@ -43,3 +43,7 @@ p,
 .no-display {
   display: none;
 }
+
+.clickable:hover {
+  cursor: pointer;
+}

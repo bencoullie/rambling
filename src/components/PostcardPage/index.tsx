@@ -33,6 +33,29 @@ const PostcardPage = ({ postcard, loading, page, title, dispatch }: Props) => {
     })
   }
 
+  const postcardTitle = (
+    <CustomTypist
+      signature={false}
+      whenClicked={() => {
+        dispatchVisibilityAction('postcard')
+      }}
+    >
+      {title}
+    </CustomTypist>
+  )
+
+  const postcardContent = (
+    <div>
+      <CustomTypist
+        callbackFn={() => {
+          dispatchVisibilityAction('experience')
+        }}
+      >
+        {text}
+      </CustomTypist>
+    </div>
+  )
+
   return (
     <section className="page page--right-side">
       <div className="page__content">
@@ -43,26 +66,7 @@ const PostcardPage = ({ postcard, loading, page, title, dispatch }: Props) => {
             'no-display': showClickableIcon,
           })}
         />
-        {showClickableIcon ? (
-          <>
-            <img
-              src={postcardIcon}
-              className="postcard-icon"
-              onClick={() => {
-                dispatchVisibilityAction('postcard')
-              }}
-            />
-            {title}
-          </>
-        ) : (
-          <CustomTypist
-            callbackFn={() => {
-              dispatchVisibilityAction('experience')
-            }}
-          >
-            {text}
-          </CustomTypist>
-        )}
+        {showClickableIcon ? postcardTitle : postcardContent}
       </div>
     </section>
   )
