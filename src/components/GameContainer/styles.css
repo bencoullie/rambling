@@ -47,3 +47,7 @@ p,
 .clickable:hover {
   cursor: pointer;
 }
+
+.title-text {
+  text-align: center;
+}

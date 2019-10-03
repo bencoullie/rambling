@@ -39,6 +39,9 @@ const PostcardPage = ({ postcard, loading, page, title, dispatch }: Props) => {
       whenClicked={() => {
         dispatchVisibilityAction('postcard')
       }}
+      callbackFn={() => {
+        dispatchVisibilityAction('experience')
+      }}
     >
       {title}
     </CustomTypist>
@@ -46,13 +49,7 @@ const PostcardPage = ({ postcard, loading, page, title, dispatch }: Props) => {
 
   const postcardContent = (
     <div>
-      <CustomTypist
-        callbackFn={() => {
-          dispatchVisibilityAction('experience')
-        }}
-      >
-        {text}
-      </CustomTypist>
+      <CustomTypist>{text}</CustomTypist>
     </div>
   )
 
@@ -62,9 +59,7 @@ const PostcardPage = ({ postcard, loading, page, title, dispatch }: Props) => {
         <img
           src={coffeeStain}
           alt="Coffee Stain Background"
-          className={classNames('coffee-stain', {
-            'no-display': showClickableIcon,
-          })}
+          className={'coffee-stain'}
         />
         {showClickableIcon ? postcardTitle : postcardContent}
       </div>

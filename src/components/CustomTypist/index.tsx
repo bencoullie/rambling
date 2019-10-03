@@ -37,7 +37,6 @@ const CustomTypist = ({
         delayGenerator={typeistDelayGenerator}
         className="standard-text standard-text--major-shadow"
         onTypingDone={() => callbackFn()}
-        cursor={{ hideWhenDone: true, hideWhenDoneDelay: 1550 }}
       >
         {children}
         {signature && (
