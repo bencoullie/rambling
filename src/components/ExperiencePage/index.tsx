@@ -12,9 +12,11 @@ interface Props {
 const ExperiencePage = ({ experience, loading }: Props) => (
   <section className="page page--left-side">
     <div className="page__content">
-      <p className="standard-text--minor-shadow">
-        {!loading && experience.visible && experience.text}
-      </p>
+      {!loading && experience.visible && (
+        <p className="standard-text--minor-shadow float-fade-in">
+          {experience.text}
+        </p>
+      )}
     </div>
   </section>
 )

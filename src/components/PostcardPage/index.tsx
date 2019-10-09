@@ -57,7 +57,7 @@ const PostcardPage = ({ postcard, loading, page, title, dispatch }: Props) => {
         <img
           src={coffeeStain}
           alt="Coffee Stain Background"
-          className={'coffee-stain'}
+          className={'coffee-stain grey-scale-fade-in'}
         />
         {showClickableIcon ? postcardTitle : postcardContent}
       </div>

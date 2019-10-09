@@ -51,3 +51,54 @@ p,
 .title-text {
   text-align: center;
 }
+
+/* Animations */
+.grey-scale-fade-in {
+  animation: grey-scale-fade-in-frames 7s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+@keyframes grey-scale-fade-in-frames {
+  0%,
+  20% {
+    filter: grayscale(100%) blur(3px) opacity(0);
+  }
+  100% {
+    filter: grayscale(100%) blur(0) opacity(0.2);
+  }
+}
+
+.float-fade-in {
+  position: relative;
+  animation: float-fade-in-frames 1.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+@keyframes float-fade-in-frames {
+  0%,
+  50% {
+    bottom: 8px;
+    filter: opacity(0);
+  }
+  100% {
+    bottom: 0;
+    filter: opacity(1);
+  }
+}
+
+.basic-fade-in {
+  animation: basic-fade-in-frames 2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+@keyframes basic-fade-in-frames {
+  0% {
+    filter: opacity(0);
+  }
+  100% {
+    filter: opacity(1);
+  }
+}
