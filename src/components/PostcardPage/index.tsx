@@ -3,14 +3,12 @@ import { connect } from 'react-redux'
 import ApplicationState from '../../types/applicationState'
 import { PageContent } from '../../types/story'
 import './styles.css'
-import postcardIcon from '../../assets/postcard.jpg'
 import coffeeStain from '../../assets/cup-coffee-stain-compressed.png'
 import StoryAction, {
   UPDATE_STORY_VISIBILITY_ACTION_TYPE,
   UpdateStoryType,
 } from '../../state/actions/storyAction'
 import { CustomTypist } from '../CustomTypist'
-import classNames from 'classnames'
 
 interface Props {
   title: string
