@@ -6,7 +6,7 @@ import classNames from 'classnames'
 
 interface Props {
   children: string
-  callbackFn?: () => void
+  typingDoneCallbackFn?: () => void
   startDelay?: number
   avgTypingDelay?: number
   stdTypingDelay?: number
@@ -16,7 +16,7 @@ interface Props {
 
 const CustomTypist = ({
   children,
-  callbackFn = () => {},
+  typingDoneCallbackFn = () => {},
   startDelay = 2000,
   avgTypingDelay = 67,
   stdTypingDelay = 32,
@@ -36,7 +36,7 @@ const CustomTypist = ({
         startDelay={startDelay}
         delayGenerator={typeistDelayGenerator}
         className="standard-text standard-text--major-shadow"
-        onTypingDone={() => callbackFn()}
+        onTypingDone={() => typingDoneCallbackFn()}
       >
         {children}
         {signature && (

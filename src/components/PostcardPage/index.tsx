@@ -19,14 +19,18 @@ interface Props {
 }
 
 const PostcardPage = ({ postcard, loading, page, title, dispatch }: Props) => {
-  const { text, visible } = postcard
+  const { text, visible, isContentTyped } = postcard
   const showClickableIcon = loading || !visible
 
-  const dispatchVisibilityAction = (storyType: 'postcard' | 'experience') => {
+  const dispatchVisibilityAction = (
+    storyType: 'postcard' | 'experience',
+    isTyped: boolean = true
+  ) => {
     dispatch({
       type: UPDATE_STORY_VISIBILITY_ACTION_TYPE,
       storyIndex: page,
       visibility: true,
+      isContentTyped: isTyped,
       storyType,
     })
   }
@@ -37,7 +41,7 @@ const PostcardPage = ({ postcard, loading, page, title, dispatch }: Props) => {
       whenClicked={() => {
         dispatchVisibilityAction('postcard')
       }}
-      callbackFn={() => {
+      typingDoneCallbackFn={() => {
         dispatchVisibilityAction('experience')
       }}
     >
@@ -45,10 +49,25 @@ const PostcardPage = ({ postcard, loading, page, title, dispatch }: Props) => {
     </CustomTypist>
   )
 
-  const postcardContent = (
+  const postcardContent = isContentTyped ? (
     <div>
-      <CustomTypist>{text}</CustomTypist>
+      <CustomTypist
+        typingDoneCallbackFn={() => {
+          dispatchVisibilityAction('postcard', false)
+        }}
+      >
+        {text}
+      </CustomTypist>
     </div>
+  ) : (
+    <p className="standard-text standard-text--major-shadow">
+      {text}
+      <span>
+        <br />
+        <br />
+        No need to reply.
+      </span>
+    </p>
   )
 
   return (
@@ -71,6 +90,9 @@ const mapStateToProps = ({ stories, page, loading }: ApplicationState) => {
     postcard: {
       text: stories[page] ? stories[page].postcard.text : '',
       visible: stories[page] ? stories[page].postcard.visible : false,
+      isContentTyped: stories[page]
+        ? stories[page].postcard.isContentTyped
+        : true,
     },
     loading,
     page,

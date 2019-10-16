@@ -11,6 +11,7 @@ export default interface storyAction<T = string> {
   stories?: ApiStory[]
   storyIndex?: number
   visibility?: boolean
+  isContentTyped?: boolean
   storyType?: 'postcard' | 'experience'
 }
 

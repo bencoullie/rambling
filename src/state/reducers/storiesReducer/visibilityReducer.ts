@@ -7,11 +7,14 @@ const visibilityReducer = (
   {
     storyIndex = 0,
     visibility = false,
+    isContentTyped = true,
     storyType = 'postcard',
   }: storyAction<UpdateStoryType>
 ) => {
   const clonedStoryState = cloneDeep(existingStories)
   clonedStoryState[storyIndex][storyType].visible = visibility
+  clonedStoryState[storyIndex][storyType].isContentTyped =
+    storyType === 'postcard' && isContentTyped
   return clonedStoryState
 }
 

@@ -1,6 +1,7 @@
 export interface PageContent {
   text: string
   visible: boolean
+  isContentTyped?: boolean
 }
 
 export interface Story {
